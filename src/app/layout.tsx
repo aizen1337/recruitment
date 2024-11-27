@@ -1,3 +1,9 @@
+import './globals.css'
+import type { Metadata } from 'next'
+export const metadata: Metadata = {
+    title: 'Zadanie rekrutacyjne',
+    description: 'Maciej Kalata',
+  }
 export default function RootLayout({
     children,
   }: {
