@@ -1,5 +1,6 @@
 "use client"
-import { NavigationElementSchema, useNavigation } from "@/hooks/useNavigation"
+import { useNavigation } from "@/hooks/useNavigation"
+import { NavigationElementSchema } from "@/types/NavigationElement"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
@@ -13,7 +14,11 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-export default function NavigationForm() {
+export default function NavigationForm({
+  parentId
+}: {
+  parentId?: string
+}) {
     const {addNavigationElement } = useNavigation()
     const form = useForm<z.infer<typeof NavigationElementSchema>>({
         resolver: zodResolver(NavigationElementSchema),
@@ -22,19 +27,19 @@ export default function NavigationForm() {
             url: "",
         },
       })
-    function onSubmit(values: z.infer<typeof NavigationElementSchema>, e?: React.BaseSyntheticEvent) {
+    function onSubmit(values: z.infer<typeof NavigationElementSchema>) {
         
         form.reset()
         addNavigationElement({
+            parentId: parentId || null,
             label: values.label,
             url: values.url,
-            subelements: []
         })
 
     }
     return (
         <Form {...form}>
-        <form onSubmit={(e: Event) => form.handleSubmit(onSubmit)(e)} className="space-y-8">
+        <form onSubmit={() => form.handleSubmit(onSubmit)} className="space-y-8">
           <FormField
             control={form.control}
             name={'label'}
@@ -42,7 +47,7 @@ export default function NavigationForm() {
               <FormItem>
                 <FormLabel>Nazwa</FormLabel>
                 <FormControl>
-                  <Input placeholder="np. Promocje" {...field} />
+                  <Input className="rounded-lg" placeholder="np. Promocje" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
