@@ -1,3 +1,4 @@
+import { NavigationStoreProvider } from '@/context/NavigationStoreProvider'
 import './globals.css'
 import type { Metadata } from 'next'
 export const metadata: Metadata = {
@@ -13,7 +14,9 @@ export default function RootLayout({
       <html lang="en" suppressHydrationWarning>
         <body>
           {/* Layout UI */}
+        <NavigationStoreProvider>
         {children}
+        </NavigationStoreProvider>
         </body>
       </html>
     )

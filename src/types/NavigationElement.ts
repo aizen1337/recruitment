@@ -4,9 +4,11 @@ import { z } from "zod";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const NavigationElementSchema = z.object({
   id: z.string().uuid(),
-  parentId: z.string().uuid().nullable(),
+  parentId: z.string().uuid().nullish(),
   label: z.string().min(1, "Label is required"),
-  url: z.string().url().optional(),
+  url: z.string().optional(),
+}).refine((value) => value.id === value.parentId, {
+  message: 'Parent ID cannot equal ID'
 });
 
 // Define the TypeScript type
