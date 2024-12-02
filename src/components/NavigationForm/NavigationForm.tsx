@@ -73,7 +73,14 @@ export default function NavigationForm({
               w-[1064px]
               h-[66px]"
               >
-                <FormLabel>Nazwa</FormLabel>
+                <FormLabel
+                className="
+                w-[46px]
+                h-[20px]
+                text-[#344054]
+                text-[14px]
+                leading-[20px]
+                ">Nazwa</FormLabel>
                 <FormControl>
                 <Input 
                 placeholder="np. Promocje"
@@ -85,6 +92,8 @@ export default function NavigationForm({
                 gap-[8px]
                 w-[1064px]
                 h-[40px]
+                text-[16px]
+                leading-[24px]
                 " 
                 {...field} />
                 </FormControl>
@@ -106,7 +115,15 @@ export default function NavigationForm({
               w-[1064px]
               h-[66px]"
               >
-                <FormLabel>Link</FormLabel>
+                <FormLabel
+                className="
+                w-[46px]
+                h-[20px]
+                text-[#344054]
+                text-[14px]
+                leading-[20px]
+                "
+                >Link</FormLabel>
                 <FormControl>
                   <Input placeholder="Wklej lub wyszukaj" {...field}
                 className="
@@ -116,7 +133,10 @@ export default function NavigationForm({
                 p-0
                 gap-[8px] 
                 w-[1064px]
-                h-[40px]"
+                h-[40px]
+                text-[16px]
+                leading-[24px]
+                "
                   />
                 </FormControl>
                 <FormMessage />
@@ -124,16 +144,45 @@ export default function NavigationForm({
             )}
           />
           </div>
-          <div>
+          <div
+           className="w-[40px] h-[40px]">
             <LucideTrash2/>
           </div>
           </section>
           <section className="
           flex
-          flex-col
+          items-start
+          px-[24px]
+          gap-[8px]
+          w-[1168px]
+          h-[40px]
+
           ">
-          <Button type="reset" variant={'outline'}>Anuluj</Button>
-          <Button type="submit" variant={'outline'}>Dodaj</Button>
+          <Button type="reset" variant={'outline'}
+          className="
+          w-[72px]
+          h-[40px]
+          py-[10px]
+          px-[14px]
+          gap-[4px]
+          rounded-[8px]
+          shadow-[0px 1px 2px rgba(16, 24, 40, 0.05);]
+          "          
+          >Anuluj</Button>
+          <Button type="submit" variant={'outline'} 
+          className="
+          w-[72px]
+          h-[40px]
+          py-[10px]
+          px-[14px]
+          gap-[4px]
+          border-1
+        border-[#D6BBFB]
+          text-[#6941C6]
+          rounded-[8px]
+          shadow-[0px 1px 2px rgba(16, 24, 40, 0.05);]
+          "
+          >Dodaj</Button>
           </section>
         </form>
       </Form>
@@ -141,40 +190,3 @@ export default function NavigationForm({
     )
 }
 
-
-/* Frame 12 */
-
-// /* Auto layout */
-// display: flex;
-// flex-direction: column;
-// align-items: flex-start;
-// padding: 0px 24px;
-// gap: 8px;
-
-// width: 1168px;
-// height: 40px;
-
-
-// /* Inside auto layout */
-// flex: none;
-// order: 1;
-// align-self: stretch;
-// flex-grow: 0;
-
-// /* actions */
-
-// /* Auto layout */
-// display: flex;
-// flex-direction: row;
-// align-items: flex-start;
-// padding: 0px;
-// gap: 8px;
-
-// width: 155px;
-// height: 40px;
-
-
-// /* Inside auto layout */
-// flex: none;
-// order: 0;
-// flex-grow: 0;
